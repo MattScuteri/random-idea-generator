@@ -1,17 +1,18 @@
 let adjective = document.getElementById('adjective');
-let noun = document.getElementById('noun').value;
-let api = "api.datamuse.com/words?rel_jjb=";
-
-let url = api + noun;
 
 function getWords() {
-    const request = new XMLHttpRequest();
+    let api = "http://api.datamuse.com/words?rel_jjb=";
+    let noun = document.getElementById("noun").value;
 
-    request.open('GET', url, true);
+    
+    let url = api + noun
 
-    request.onload = function(data) {
+    console.log(url);
+    request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.onload = function() {
+        let data = JSON.parse(this.response);
         console.log(data);
     }
-
     request.send();
 }
