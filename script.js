@@ -1,11 +1,11 @@
 let adjective = document.getElementById('adjective');
 
 function getWords() {
-    let api = "http://api.datamuse.com/words?rel_jjb=";
-    let noun = document.getElementById("noun").value;
+    const api = "http://api.datamuse.com/words?rel_jjb=";
+    const noun = document.getElementById("noun").value;
 
     
-    let url = api + noun
+    var url = api + noun
 
     console.log(url);
     request = new XMLHttpRequest();
@@ -13,6 +13,11 @@ function getWords() {
     request.onload = function() {
         let data = JSON.parse(this.response);
         console.log(data);
+
+        let randomAdjective = data[Math.floor(Math.random()*data.length)];
+        console.log(randomAdjective.word);
+        document.getElementById("adjective").innerHTML = randomAdjective.word;
+        document.getElementById("user-noun").innerHTML = noun;
     }
     request.send();
 }
