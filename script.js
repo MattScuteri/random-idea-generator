@@ -2,7 +2,7 @@ var randomAdjective;
 var noun;
 
 function getWords() {
-    const api = "http://api.datamuse.com/words?rel_jjb=";
+    const api = "https://api.datamuse.com/words?rel_jjb=";
     const adjective = document.getElementById('adjective');
     const userNoun = document.getElementById('user-noun');
 
