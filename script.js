@@ -1,9 +1,12 @@
+var randomAdjective;
+var noun;
+
 function getWords() {
-    let api = "http://api.datamuse.com/words?rel_jjb=";
-    let noun = document.getElementById("noun").value;
-    let adjective = document.getElementById('adjective');
-    let userNoun = document.getElementById('user-noun');
-    
+    const api = "http://api.datamuse.com/words?rel_jjb=";
+    const adjective = document.getElementById('adjective');
+    const userNoun = document.getElementById('user-noun');
+
+    noun = document.getElementById("noun").value;
     var url = api + noun
 
     request = new XMLHttpRequest();
@@ -12,12 +15,15 @@ function getWords() {
         let data = JSON.parse(this.response);
         console.log(data);
 
-        let randomAdjective = data[Math.floor(Math.random()*data.length)];
+        randomAdjective = data[Math.floor(Math.random()*data.length)];
         console.log(randomAdjective.word);
 
         document.getElementById('results-div').style.display = "block";
         adjective.innerHTML = randomAdjective.word;
         userNoun.innerHTML = noun;
+
+        let idea = randomAdjective.word + noun;
+        return idea;
     }
     request.send();
 }
