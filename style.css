@@ -1,6 +1,8 @@
-.jumbotron {
+.jumbo {
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: .3rem;
     text-align: center;
-    background: white;
 }
 
 .container {
