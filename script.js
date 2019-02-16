@@ -1,6 +1,6 @@
 function getWords() {
-    const api = "http://api.datamuse.com/words?rel_jjb=";
-    const noun = document.getElementById("noun").value;
+    let api = "http://api.datamuse.com/words?rel_jjb=";
+    let noun = document.getElementById("noun").value;
     let adjective = document.getElementById('adjective');
     let userNoun = document.getElementById('user-noun');
     
